@@ -46,7 +46,6 @@ jobs:
     - run:
         name: Build Docker Container
         command: |
-          . venv/bin/activate  
           # Build image and add a descriptive tag
           export dockerpath="trind7"
           docker build --tag=udacity .
