@@ -35,15 +35,13 @@ jobs:
             make lint
   build-docker:
     docker:      
-      # Docker image here that supports Ansible
-      - image: python:3.7-alpine3.11
+      - image: cimg/base:2022.06
     steps:
     # Checkout code from git
     - checkout
-    # Install via apk on alpine based images
-    - run:
-        name: Install Docker client
-        command: apk add docker-cli
+    - setup_remote_docker:
+        version: 20.10.14
+        docker_layer_caching: true
     - run:
         name: Build Docker Container
         command: |
