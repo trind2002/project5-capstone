@@ -56,7 +56,7 @@ jobs:
     # Here's where you will add some code to rollback on failure      
   deployment:
     docker:      
-      - image: cimg/base:2022.06
+      - image: python:3.7.3-stretch
     steps:
     # Checkout code from git
     - checkout
@@ -73,7 +73,7 @@ jobs:
     - run:
         name: 'Display endpoint information about the master and services in the cluster.'
         command: |
-          aws eks update-kubeconfig --name Capstone-project-EKS
+          aws eks update-kubeconfig --name eksUdacityClusterStack
           kubectl cluster-info
           kubectl get all -n kube-system
     # Here's where you will add some code to rollback on failure    
