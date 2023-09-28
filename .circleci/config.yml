@@ -49,11 +49,11 @@ jobs:
           // Requested access to the resource
           docker login -u $DOCKER_USER -p $DOCKER_PASS
           # Build image and add a descriptive tag
-          export dockerpath="trind7"
+          export dockerpath="trind7/udacity:v1.0"
           docker build --tag=udacity .
           # Push image to a docker repository
-          docker tag udacity ${dockerpath}/udacity:v1.0
-          docker push ${dockerpath}/udacity:v1.0
+          docker tag udacity ${dockerpath}
+          docker push ${dockerpath}
     # Here's where you will add some code to rollback on failure      
   deployment:
     docker:
