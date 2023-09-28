@@ -37,6 +37,7 @@ jobs:
     docker:      
       # Docker image here that supports Ansible
       - image: python:3.7.3-stretch
+    working_directory: ~/repo
     steps:
     # Checkout code from git
     - run:
