@@ -36,13 +36,13 @@ jobs:
   build-docker:
     docker:      
       # Docker image here that supports Ansible
-      - image: python:3.7.3-stretch
-      - checkout
-      - setup_remote_docker:
-          version: 20.10.14
-          docker_layer_caching: true
+      - image: python:3.7.3-stretch   
     steps:
     # Checkout code from git
+    - checkout
+    - setup_remote_docker:
+        version: 20.10.14
+        docker_layer_caching: true
     - run:
         name: Build Docker Container
         command: |
