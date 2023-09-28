@@ -46,6 +46,8 @@ jobs:
         name: Build Docker Container
         command: |
           docker --version
+          // Requested access to the resource
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
           # Build image and add a descriptive tag
           export dockerpath="trind7"
           docker build --tag=udacity .
