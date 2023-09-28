@@ -46,6 +46,7 @@ jobs:
     - run:
         name: Build Docker Container
         command: |
+          docker --version
           # Build image and add a descriptive tag
           export dockerpath="trind7"
           docker build --tag=udacity .
