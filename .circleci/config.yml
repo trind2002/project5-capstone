@@ -83,6 +83,12 @@ jobs:
           aws eks update-kubeconfig --name eksUdacityClusterStack
           kubectl cluster-info
           kubectl get all -n kube-system
+    - run:
+        name: Deploying web applications on Kubernetes with continuous integration
+        command: |
+          kubectl apply -f ./kubernetes/aws-auth-cm.yaml
+          kubectl apply -f ./kubernetes/deploytment.yaml      
+          kubectl get all      
     # Here's where you will add some code to rollback on failure    
 workflows:
   default:
