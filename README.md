@@ -23,7 +23,7 @@ For my submission:
 - URLs including:
   1. Public Url to GitHub repository (not private) [URL01](https://github.com/trind2002/project5-capstone)
   1. URL hub.docker.com repository [URL02](https://hub.docker.com/repository/docker/trind7/udacity/general)
-  1. Elastic Load Balancing (ELB)  [URL03]
+  1. Elastic Load Balancing (ELB)  [URL03](http://a82a9ef870f9e496d8cea2e99b477a4b-456124985.us-east-1.elb.amazonaws.com/)
 - Your screenshots in JPG or PNG format, named using the screenshot number listed in the instructions. These screenshots should be included in your code repository in the root folder.
   1. Linting step both a failed. [SCREENSHOT01]
   1. Linting screenshot and a successful. [SCREENSHOT02]
