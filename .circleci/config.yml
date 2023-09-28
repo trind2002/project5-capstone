@@ -62,6 +62,6 @@ workflows:
     jobs:
       - lint
       - build-docker:
-        requires: [lint]
+          requires: [lint]
       - deployment:
-        requires: [build-docker]
+          requires: [build-docker]
