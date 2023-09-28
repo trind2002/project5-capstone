@@ -36,14 +36,18 @@ jobs:
   build-docker:
     docker:      
       # Docker image here that supports Ansible
-      - image: python:3.7-alpine3.11
+      - image: python:3.7.3-stretch
     steps:
     # Checkout code from git
     - run:
         name: Build Docker Container
-        command: |
-          # Your code here
-          echo 'Build Docker Container Success'
+        command: |        
+          # Build image and add a descriptive tag
+          export dockerpath="trind7"
+          docker build --tag=udacity .
+          # Push image to a docker repository
+          docker tag udacity ${dockerpath}/udacity:v1.0
+          docker push ${dockerpath}/udacity:v1.0
     # Here's where you will add some code to rollback on failure      
   deployment:
     docker:
