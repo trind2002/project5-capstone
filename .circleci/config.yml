@@ -40,9 +40,10 @@ jobs:
     steps:
     # Checkout code from git
     - checkout
-    - setup_remote_docker:
-        version: 20.10.14
-        docker_layer_caching: true
+    # Install via apk on alpine based images
+    - run:
+        name: Install Docker client
+        command: apk add docker-cli
     - run:
         name: Build Docker Container
         command: |
