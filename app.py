@@ -18,12 +18,12 @@ def healthcheck():
             mimetype='application/json'
     )
 
-    app.logger.info('Status request successfull')
+    LOG.info(f"Status request successfull")
     return response
 
 @app.route("/")
 def hello():
-    app.logger.info('Main request successfull')
+    LOG.info(f"App running")
 
     return "Hello World!"
 
