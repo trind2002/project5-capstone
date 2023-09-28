@@ -1,7 +1,4 @@
 version: 2.1
-orbs:
-  aws-eks: circleci/aws-eks@2.2.0
-  kubernetes: circleci/kubernetes@1.3
 jobs:
   lint:
     docker:
@@ -59,15 +56,15 @@ jobs:
     # Here's where you will add some code to rollback on failure      
   deployment:
     docker:
-      - image: cimg/python:3.10
+      # Docker image here that supports AWS CLI
+      - image: amazon/aws-cli
     steps:
     # Checkout code from git
     - checkout
-    - kubernetes/install
     - run:
-        name: Test cluster
+        name: Test create cluster
         command: |
-          kubectl get services        
+          eksctl create cluster -f ./cluster/eksctl-udacity-cluster.yaml
     # Here's where you will add some code to rollback on failure    
 workflows:
   default:
