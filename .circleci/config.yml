@@ -86,8 +86,8 @@ jobs:
     - run:
         name: Deploying web applications on Kubernetes with continuous integration
         command: |
-          kubectl apply -f ./kubernetes/aws-auth-cm.yaml
-          kubectl apply -f ./kubernetes/deploytment.yaml      
+          kubectl apply -f ./kubernetes/aws-auth-cm.yml
+          kubectl apply -f ./kubernetes/deployment.yml      
           kubectl get all      
     # Here's where you will add some code to rollback on failure    
 workflows:
