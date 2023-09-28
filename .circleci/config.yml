@@ -55,16 +55,27 @@ jobs:
           docker push trind7/udacity:v1.0
     # Here's where you will add some code to rollback on failure      
   deployment:
-    docker:
-      # Docker image here that supports AWS CLI
-      - image: amazon/aws-cli
+    docker:      
+      - image: cimg/base:2022.06
     steps:
     # Checkout code from git
     - checkout
+    - setup_remote_docker:
+        version: 20.10.14
+        docker_layer_caching: true
     - run:
-        name: Test create cluster
+        name: Install kubectl 
         command: |
-          eksctl create cluster -f ./cluster/eksctl-udacity-cluster.yaml
+          curl -k -LO "https://dl.k8s.io/release/v1.24.7/bin/linux/amd64/kubectl"
+          curl -k -LO "https://dl.k8s.io/v1.24.7/bin/linux/amd64/kubectl.sha256"
+          echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+          sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+    - run:
+        name: 'Display endpoint information about the master and services in the cluster.'
+        command: |
+          aws eks update-kubeconfig --name Capstone-project-EKS
+          kubectl cluster-info
+          kubectl get all -n kube-system
     # Here's where you will add some code to rollback on failure    
 workflows:
   default:
