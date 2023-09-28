@@ -3,36 +3,36 @@ jobs:
   lint:
     docker:
     # Use the same Docker base as the project
-        - image: python:3.7.3-stretch
+      - image: python:3.7.3-stretch
     working_directory: ~/repo
     steps:
-        - checkout
-        # Download and cache dependencies
-        - restore_cache:
-            keys:
-            - v1-dependencies-{{ checksum "requirements.txt" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-        - run:
-            name: create virtualenv
-            command: |
-                make setup
-        - run:
-            name: install dependencies
-            command: |
-                python3 -m venv venv
-                . venv/bin/activate
-                make install
-        - save_cache:
-            paths:
-                - ./venv
-            key: v1-dependencies-{{ checksum "requirements.txt" }}
-        # run lint!
-        - run:
-            name: run lint
-            command: |
-                . venv/bin/activate
-                make lint
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "requirements.txt" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+      - run:
+          name: create virtualenv
+          command: |
+            make setup
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            make install
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+      # run lint!
+      - run:
+          name: run lint
+          command: |
+            . venv/bin/activate
+            make lint
   build-docker:
     docker:
     # Docker image here that supports AWS CLI
@@ -41,8 +41,8 @@ jobs:
     - run:
         name: Build Docker Container
         command: |
-            # Your code here
-            exit 1
+          # Your code here
+          exit 1
     # Here's where you will add some code to rollback on failure      
   deployment:
     docker:
@@ -52,8 +52,8 @@ jobs:
     - run:
         name: Deployment
         command: |
-            # Your code here
-            exit 1
+          # Your code here
+          exit 1
     # Here's where you will add some code to rollback on failure    
 workflows:
   default:
