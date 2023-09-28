@@ -43,7 +43,7 @@ jobs:
         name: Build Docker Container
         command: |
           # Your code here
-          exit 1
+          echo 'Build Docker Container Success'
     # Here's where you will add some code to rollback on failure      
   deployment:
     docker:
@@ -55,11 +55,13 @@ jobs:
         name: Deployment
         command: |
           # Your code here
-          exit 1
+          echo 'EKS Cluster Success'
     # Here's where you will add some code to rollback on failure    
 workflows:
   default:
     jobs:
       - lint
-      - build-docker
-      - deployment
+      - build-docker:
+        requires: [lint]
+      - deployment:
+        requires: [build-docker]
