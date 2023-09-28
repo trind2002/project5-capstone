@@ -22,7 +22,7 @@ def healthcheck():
 def hello():
     LOG.info(f"App running")
 
-    return "Hello World!"
+    return "Hello World, my name is Nguyen Duc Tri!"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True) # specify port=80
