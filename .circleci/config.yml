@@ -39,8 +39,8 @@ jobs:
       - image: python:3.7.3-stretch
       - checkout
       - setup_remote_docker:
-            version: 20.10.14
-            docker_layer_caching: true
+          version: 20.10.14
+          docker_layer_caching: true
     steps:
     # Checkout code from git
     - run:
