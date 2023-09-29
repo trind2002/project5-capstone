@@ -31,6 +31,8 @@ For my submission:
   1. Take a screenshot of your AWS EC2 page showing the newly created. [SCREENSHOT04]
   1. Take a screenshot of the kubectl command output showing. [SCREENSHOT05]
   1. Take a screenshot showing that you can access the application after deployment. [SCREENSHOT06]
+  1. Take a screenshot deployed CloudFormation stack. [SCREENSHOT07]
+  1. Take a screenshot show evidence of your centralized image repo!. [SCREENSHOT08]
 
 ---
 #### Circle CI
